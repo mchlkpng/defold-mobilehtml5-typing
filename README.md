@@ -11,7 +11,7 @@ Feel free to make any changes to the html that you would like.
 		 https://github.com/AGulev/jstodef/archive/refs/tags/2.0.0.zip
  - Get a version link from [Releases](https://github.com/mchlkpng/defold-mobilehtml5-typing/releases/) or add this link to dependencies:
 	
-		https://github.com/mchlkpng/defold-mobilehtml5-typing/main.zip
+		https://github.com/mchlkpng/defold-mobilehtml5-typing/archive/main.zip
 
  - Require the lua module.
 
