@@ -35,7 +35,7 @@ Creates an ``<input>`` and ``<button>`` node that will take and submit the text.
 Example:
 ``` lua
 function on_input(self, action_id, action)
-    if action_id == hash("touch") and mht then
+    if action_id == hash("touch") and action.pressed and mht then
         mht.openTextBox(self.text)
     end
 end
