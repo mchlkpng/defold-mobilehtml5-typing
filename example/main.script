@@ -1,4 +1,4 @@
-local mht = require "mobilehtml5-typing.index"
+local mht = require "mobilehtml5typing.index"
 
 function init(self)
 	if mht then

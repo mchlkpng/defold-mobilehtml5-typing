@@ -16,5 +16,5 @@ title = mobilehtml5-typing
 dependencies#0 = https://github.com/AGulev/jstodef/archive/master.zip
 
 [library]
-include_dirs = /mobilehtml5-typing
+include_dirs = mobilehtml5typing
 
