@@ -2,9 +2,12 @@ local mht = require "mobilehtml5-typing.index"
 
 function init(self)
 	if mht then
-		mht.onText(self, false, function(self, text)
+		self.listener = mht.onText(self, function(self, text)
 			print("got text", text)
 			label.set_text("#label", text)
+		end)
+		self.otherlistener = mht.onText(self, function(self, text)
+			print("ooh", text)
 		end)
 	end
 	msg.post("#", "acquire_input_focus")
@@ -39,11 +42,11 @@ end
 
 function on_input(self, action_id, action)
 	if action_id == hash("touch") and action.pressed then
-		mht.openTextBox("hello")
+		mht.openTextBox()
 	end
 
 	if action_id == hash("kill") and action.pressed then
-		mht.removeListener()
+		mht.removeListener(self.listener)
 	end
 end
 

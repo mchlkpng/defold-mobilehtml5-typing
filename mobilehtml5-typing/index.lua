@@ -87,48 +87,46 @@ function closeTextBox() {
 ]]
 
 function mht.openTextBox(startingText)
-	if type(startingText) ~= "string" then
-		error("type of 'startingText' must be string.")
+	if startingText and type(startingText) ~= "string" then
+		error("type of 'startingText' must be string, got type "..type(startingText)..".")
 		return
 	end
-	html5.run(run.."openTextBox(`"..startingText.."`)")
+	local st = startingText or ""
+	html5.run(run.."openTextBox(`"..st.."`)")
 end
 
-local listener
-local function killListener()
+local function killListener(listener)
 	timer.delay(0.05, false, function() 
 		if listener then
 			jstodef.remove_listener(listener)
-			listener = nil
 		end
 	end)
 end
 
-function mht.onText(self, removeListenerAfter, callback)
+function mht.onText(self, callback)
 	if type(self) ~= "userdata" then
-		error("type of 'self' must be... ya know... 'self'. I have no idea why you even set it to anything else.")
-		return
-	end
-	if type(removeListenerAfter) ~= "boolean" then
-		error("type of 'removeListenerAfter' must be boolean.")
+		error("type of 'self' must be... ya know... 'self'. I have no idea why you even set it to anything else. Got type "..type(self)..".")
 		return
 	end
 	if type(callback) ~= "function" then
-		error("type of 'callback' must be function.")
+		error("type of 'callback' must be function, got type "..type(callback)..".")
 		return
 	end
 
-	listener = function(self, message_id, message)
+	local listener = function(self, message_id, message)
 		callback(self, message.text)
-		if removeListenerAfter then
-			killListener()
-		end
 	end
 	jstodef.add_listener(listener)
+
+	return listener
 end
 
-function mht.removeListener()
-	killListener()
+function mht.removeListener(listener)
+	if type(listener) ~= "function" then
+		error("type of 'listener' must be function, got type "..type(listener)..".")
+		return
+	end
+	killListener(listener)
 end
 
 return mht
