@@ -10,7 +10,7 @@ local onmobile = html5.run([[window.mobileAndTabletCheck1234 = function() {
 		return check;
 	}; window.mobileAndTabletCheck1234()]])
 
---if onmobile ~= "true" then return false end
+if onmobile ~= "true" then return false end
 
 
 local mht = {}
