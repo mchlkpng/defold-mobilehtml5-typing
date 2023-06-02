@@ -16,7 +16,7 @@ Feel free to make any changes to the html that you would like.
  - Require the lua module.
 
     ```lua
-    local mht = require "mobilehtml5-typing.index"
+    local mht = require "mobilehtml5typing.index"
     ```
   #### Note: The module will only require if it's being run on a mobile browser, so make sure to check if the module had even returned.
 ```lua
