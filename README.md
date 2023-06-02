@@ -80,5 +80,6 @@ function on_message(self, message_id, message, sender)
     end
 end
 ```
-
+## "I want to change up the styling of the textbox and button, how do I do that?"
+in the [index.lua](https://github.com/mchlkpng/defold-mobilehtml5-typing/blob/main/mobilehtml5typing/index.lua) file, look for the `function openTextBox(currentText)` function. In there, you'll find `e.setAttribute("style", ...)` and `b.setAttribute("style", ...)`, where you can change the style of the textbox and button respectively.
         
