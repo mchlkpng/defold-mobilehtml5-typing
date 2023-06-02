@@ -1,4 +1,4 @@
-# MobileHtml5-type
+# MobileHtml5-typing
 This is a lua module that allows text input through the `<input>`  tag on the HTML page, only in mobile browsers. It works through [jstodef](https://github.com/AGulev/jstodef), which is required.
 
 Feel free to make any changes to the html that you would like.
