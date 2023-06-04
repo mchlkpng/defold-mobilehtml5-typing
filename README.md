@@ -1,4 +1,4 @@
-# MobileHtml5-type
+# MobileHtml5Typing
 This is a lua module that allows text input through the `<input>`  tag on the HTML page, only in mobile browsers. It works through [jstodef](https://github.com/AGulev/jstodef), which is required.
 
 Feel free to make any changes to the html that you would like.
@@ -35,7 +35,7 @@ Creates an ``<input>`` and ``<button>`` node that will take and submit the text.
 Example:
 ``` lua
 function on_input(self, action_id, action)
-    if action_id == hash("touch") and mht then
+    if action_id == hash("touch") and action.pressed and mht then
         mht.openTextBox(self.text)
     end
 end
@@ -80,5 +80,6 @@ function on_message(self, message_id, message, sender)
     end
 end
 ```
-
+## "I want to change up the styling of the textbox and button, how do I do that?"
+in the [index.lua](https://github.com/mchlkpng/defold-mobilehtml5-typing/blob/main/mobilehtml5typing/index.lua) file, look for the `function openTextBox(currentText)` function inside `html5.run` (use CTRL + F). In there, you'll find `e.setAttribute("style", ...)` and `b.setAttribute("style", ...)`, where you can change the style of the textbox and button respectively.
         
