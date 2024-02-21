@@ -10,6 +10,7 @@ height = 640
 
 [android]
 input_method = HiddenInputField
+package = com.mchlkpng.mobilehtml5typing
 
 [project]
 title = mobilehtml5-typing
@@ -21,8 +22,6 @@ include_dirs = mobilehtml5typing
 [ios]
 bundle_identifier = mchlkpng.mobilehtml5typing
 
-[android]
-package = com.mchlkpng.mobilehtml5typing
-
 [osx]
 bundle_identifier = mchlkpng.mobilehtml5typing
+

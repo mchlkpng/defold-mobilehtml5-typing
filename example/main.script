@@ -10,6 +10,10 @@ function init(self)
 			print("ooh", text)
 		end)
 	end
+
+	if html5 then
+		label.set_text("#useragent", "User agent: "..html5.run("navigator.userAgent").."\nIs mobile?: "..tostring(not not mht))
+	end
 	msg.post("#", "acquire_input_focus")
 end
 
