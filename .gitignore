@@ -5,6 +5,7 @@
 Thumbs.db
 .lock-wscript
 *.pyc
-.project
+*.project
 .cproject
 builtins
+*.der
