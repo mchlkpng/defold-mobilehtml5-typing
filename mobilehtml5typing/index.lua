@@ -37,7 +37,7 @@ window.checkIfMobile();
 local onmobile = html5.run(check)
 
 
-if onmobile ~= "true" then return false end
+--if onmobile ~= "true" then return false end
 
 
 local mht = {}
@@ -45,7 +45,7 @@ local mht = {}
 local run = [[
 let textBoxOpened = false
 let listener = (evt) => {
-	const textbox = document.getElementById("text-input");
+	const textbox = document.getElementById("defold-mobilehtml5-text-input");
 	let targetEl = evt.target;     
 	do {
 		if(targetEl == textbox) {
@@ -67,18 +67,18 @@ let listener2 = (evt) => {
 }
 
 function openTextBox(currentText) {
-	if (document.getElementById("text-input")) {return}
+	if (document.getElementById("defold-mobilehtml5-text-input")) {return}
 	let canvas = document.getElementById("canvas");
 	let width = canvas.getAttribute("width")
 	let e = document.createElement("input");
-	e.setAttribute("id", "text-input")
+	e.setAttribute("id", "defold-mobilehtml5-text-input")
 	e.setAttribute("type", "text")
 	e.setAttribute("style", `width: 80%; height: 10%; top: 20%; position: absolute; left: 0`)
 	e.value = currentText || ""
 
 	let b = document.createElement("button");
 	b.innerHTML = "Done";
-	b.setAttribute("id", "text-input-button")
+	b.setAttribute("id", "defold-mobilehtml5-text-input-button")
 	b.setAttribute("style", "width: 17%; height: 10%; top: 20%; position: absolute; right: 0")
 	b.setAttribute("onclick", "closeTextBox()")
 
@@ -97,11 +97,11 @@ function openTextBox(currentText) {
 
 function closeTextBox() {
 	textBoxOpened = false
-	if (document.getElementById("text-input")) {
-		let value = document.getElementById("text-input").value;
+	if (document.getElementById("defold-mobilehtml5-text-input")) {
+		let value = document.getElementById("defold-mobilehtml5-text-input").value;
 		JsToDef.send("mobilehtml5-typing_text", {text: value})
-		document.getElementById("text-input").remove()
-		document.getElementById("text-input-button").remove()
+		document.getElementById("defold-mobilehtml5-text-input").remove()
+		document.getElementById("defold-mobilehtml5-text-input-button").remove()
 	}
 	document.removeEventListener("keydown", listener2)
 	setTimeout(() => {
